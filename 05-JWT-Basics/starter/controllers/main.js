@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-const {BadRequest} = require("../errors");
-
+const { BadRequest } = require("../errors");
 
 const login = async (req, res) => {
     const { username, password } = req.body;
@@ -24,9 +23,11 @@ const dashboard = async (req, res) => {
     console.log(req.user);
 
     const luckyNumber = Math.floor(Math.random() * 100)
-    res.status(200).json({ msg: `Hello, ${req.user.username}`, secret: `Here is your authorized data, your lucky numer is ${luckyNumber}` })
+    res.status(200).json({
+        msg: `Hello, ${req.user.username}`,
+        secret: `Here is your authorized data, your lucky numer is ${luckyNumber}`
+    })
 
-    // res.status(200).json({ message: `Hello, John`, secret: `Here is your authorized data, your lucku numer is ` })
 };
 
 module.exports = {
